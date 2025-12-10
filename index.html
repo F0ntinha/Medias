@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Cálculo de Médias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="box">
+    <h2>Cálculo de Média Escolar</h2>
+
+    <label>Escolhe a disciplina:</label>
+    <select id="disciplina" onchange="carregarCampos()">
+        <option value="">-- Escolhe --</option>
+        <option value="pt">Português</option>
+        <option value="mat">Matemática</option>
+        <option value="fis">Física</option>
+    </select>
+
+    <div id="campos"></div>
+
+    <button onclick="calcular()">Calcular Média</button>
+
+    <div id="resultado"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
