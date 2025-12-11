@@ -102,8 +102,9 @@ function calcular() {
             return;
         }
 
-        media_final = testes * 0.5 + lab * 0.4 + comp * 0.1;
+        media_final = testes * 0.65 + lab * 0.25 + comp * 0.1;
     }
 
     r.innerHTML = "📘 Média Final: <b>" + media_final.toFixed(2) + "</b>";
 }
+
