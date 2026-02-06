@@ -1,30 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <title>Cálculo de Médias</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Valentine?</title>
+  <style>
+    body {
+      background: #f8d7da;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    .card {
+      background: #ffeef2;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    img {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: #c9184a;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    #yes {
+      background: #38b000;
+      color: white;
+      transition: transform 0.2s;
+    }
+    #no {
+      background: #d00000;
+      color: white;
+    }
+  </style>
 </head>
 <body>
+  <div class="card">
+    <img id="cat" src="inicio.png" alt="gato inicial" />
+    <h1>Queres ser o meu Valentine? 💖</h1>
+    <button id="yes">Sim</button>
+    <button id="no">Não</button>
+  </div>
 
-<div class="box">
-    <h2>Cálculo de Média Escolar</h2>
+  <script>
+    let yesBtn = document.getElementById('yes');
+    let noBtn = document.getElementById('no');
+    let scale = 1;
 
-    <label>Escolhe a disciplina:</label>
-    <select id="disciplina" onchange="carregarCampos()">
-        <option value="">-- Escolhe --</option>
-        <option value="pt">Português</option>
-        <option value="mat">Matemática</option>
-        <option value="fis">Física</option>
-    </select>
+    const noTexts = [
+      'Tens a certeza?',
+      'Mesmo mesmo?',
+      'Pensa bem 😢',
+      'Última hipótese…',
+      'Vais partir o meu coração 💔'
+    ];
+    let index = 0;
 
-    <div id="campos"></div>
+    noBtn.onclick = () => {
+      scale += 0.2;
+      yesBtn.style.transform = `scale(${scale})`;
+      noBtn.innerText = noTexts[index % noTexts.length];
+      index++;
+    };
 
-    <button onclick="calcular()">Calcular Média</button>
-
-    <div id="resultado"></div>
-</div>
-
-<script src="script.js"></script>
+    yesBtn.onclick = () => {
+      document.querySelector('.card').innerHTML = `
+        <h1>YAYYY 💘</h1>
+        <img src="final.png" style="width:220px;border-radius:20px" />
+        <p>Agora somos Valentines 🥰</p>
+      `;
+    };
+  </script>
 </body>
 </html>
